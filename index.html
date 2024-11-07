@@ -1,29 +1,33 @@
-<html>
-  <head>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Section Spécifique</title>
     <style>
-      iframe {
-        width: 100%;
-        height: 600px;
-        border: none;
-      }
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
     </style>
-  </head>
-  <body>
-    <iframe src="https://www.karinerobitaille.net/formulaire-crm"></iframe>
+</head>
+<body>
+    <iframe id="embedded-iframe" src="https://www.karinerobitaille.net/formulaire-crm"></iframe>
+
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        var iframe = document.querySelector("iframe");
-        iframe.onload = function () {
-          var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-          // Masquer tout sauf la section spécifiée
-          var section = iframeDocument.querySelector("#bgLayers_comp-m36bwv89");
-          if (section) {
-            iframeDocument.body.innerHTML = "";
-            iframeDocument.body.appendChild(section);
-          }
-        };
-      });
+        document.addEventListener("DOMContentLoaded", function () {
+            var iframe = document.getElementById("embedded-iframe");
+            iframe.onload = function () {
+                var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+                // Masquer tout sauf la section spécifiée
+                var section = iframeDocument.querySelector("#bgLayers_comp-m36bwv89");
+                if (section) {
+                    iframeDocument.body.innerHTML = "";
+                    iframeDocument.body.appendChild(section);
+                }
+            };
+        });
     </script>
-  </body>
+</body>
 </html>
